@@ -13,8 +13,8 @@ if (isset($_GET['page'])) {
 
 // Назначаем количество данных на одной странице
 $size_page = 5;
-// Вычисляем с какого объекта начать выводить
-$offset = ($page - 1) * $size_page;
 
-$data = new Comments();
-$data->getAllData($offset, $size_page);
+$com = new Comments();
+$totalRows = $com->getTotalRows();
+
+$totalPages = ceil($totalRows / $size_page);
